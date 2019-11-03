@@ -17,8 +17,8 @@ const getCost = () => {
 
 return(
     <ResponsiveBar
-        data={costData}
-        keys={[ 'parent', 'loan', 'sandwich', 'kebab', 'fries', 'donut', 'test' ]}
+        data={costData.payments}
+        keys={[ 'amount']}
         indexBy="year"
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
         padding={0.3}
