@@ -37,7 +37,7 @@ const MyColleges = props => {
                   <button onClick={() => deleteMyCollege(myCollege.id)}>
                     Delete
                   </button>
-                  <button onClick={() => {props.history.push(`/costpage${myCollege.id}`)}}>College Graph</button>
+                  <button onClick={() => {props.history.push(`/costpage/${myCollege.id}`)}}>College Graph</button>
                 </ul>
               </div>
             );

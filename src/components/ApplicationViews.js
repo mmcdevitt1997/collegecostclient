@@ -7,6 +7,8 @@ import Login from "./auth/Login"
 import MyCollege from "./college/MyColleges"
 import AddCollegeForm from "./college/AddCollegeForm"
 import CostPage from "../components/costpage/CostPage"
+import AddPaymentForm from "../components/costandpayment/paymentform"
+import CostStream from "../components/costandpayment/coststream"
 
 const ApplicationViews = () => {
     const { isAuthenticated } = useSimpleAuth()
@@ -25,7 +27,15 @@ const ApplicationViews = () => {
             <Route
                 exact path="/costpage/:collegeId(\d+)" render={props => {
                     if(isAuthenticated()) return(
-                   <CostPage {...props} />
+                   <CostStream {...props} />
+                 )
+                 else return <Redirect to="/login"/>
+                }}
+            />
+            <Route
+                exact path="/costpage/:collegeId(\d+)" render={props => {
+                    if(isAuthenticated()) return(
+                   <AddPaymentForm {...props} />
                  )
                  else return <Redirect to="/login"/>
                 }}

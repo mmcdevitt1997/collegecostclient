@@ -72,7 +72,33 @@ export default Object.create(null, {
           "Authorization": `Token ${localStorage.getItem("token")}`
         }
       })
-
+    }
+  },
+  chartdataAll: {
+    value(collegeId) {
+      // if (isAuthenticated()) {
+      return fetch(`${remoteURL}/years?chartdata=true&collegeId=${collegeId}`, {
+        "method": "GET",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Authorization": `Token ${localStorage.getItem("token")}`
+        }
+      }).then(e => e.json())
+    }
+  },
+  chartdata: {
+    value(name, id) {
+      // if (isAuthenticated()) {
+      return fetch(`${remoteURL}/${name}/${id}?chartdata=true`, {
+        "method": "GET",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Authorization": `Token ${localStorage.getItem("token")}`
+        }
+      }).then(e => e.json())
     }
   }
+
 })
