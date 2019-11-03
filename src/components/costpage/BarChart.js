@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { ResponsiveBar } from "@nivo/bar"
+import ApiManger from "../../modules/APIManager"
 
-const MyResponsiveBar = ({  data = [ ] /* see data tab */ }) => (
+
+const BarGraph = props => {
+
+const [costData, setCost] = useState([]);
+
+const getCost = () => {
+    return ApiManger.chartdataAll( props.match.params.collegeId).then(setCost)
+}
+   useEffect(() => {
+    getCost();
+  }, []);
+
+
+return(
     <ResponsiveBar
-        data={data}
+        data={costData}
         keys={[ 'parent', 'loan', 'sandwich', 'kebab', 'fries', 'donut', 'test' ]}
         indexBy="year"
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
@@ -94,4 +108,5 @@ const MyResponsiveBar = ({  data = [ ] /* see data tab */ }) => (
         motionDamping={15}
     />
 )
-export default MyResponsiveBar;
+    }
+export default BarGraph;
