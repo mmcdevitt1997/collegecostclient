@@ -7,7 +7,8 @@ import Login from "./auth/Login";
 import MyCollege from "./college/MyColleges";
 import AddCollegeForm from "./college/AddCollegeForm";
 import AddCostForm from "./costpage/AddCostForm"
-import AddPaymentForm from "../components/costandpayment/paymentform";
+import PaymentPage from "./paymentpage/PaymentPage"
+import AddPaymentForm from "./paymentpage/AddPaymentForm"
 
 import CostPage from "../components/costpage/CostPage";
 
@@ -35,14 +36,14 @@ const ApplicationViews = () => {
         }}
       />
 
-      {/* <Route
+      <Route
         exact
         path="/paymentpage/:collegeId(\d+)"
         render={props => {
-          if (isAuthenticated()) return <PaymentPage {...props} />;
+          if (isAuthenticated()) return <PaymentPage  {...props} />;
           else return <Redirect to="/login" />;
         }}
-      /> */}
+      />
 
       <Route
         exact
@@ -60,7 +61,14 @@ const ApplicationViews = () => {
           else return <Redirect to="/login" />;
         }}
       />
-
+ <Route
+        exact
+        path="/addpayment/:collegeId(\d+)"
+        render={props => {
+          if (isAuthenticated()) return <AddPaymentForm  {...props} />;
+          else return <Redirect to="/login" />;
+        }}
+      />
 
       <Route
         path="/register"

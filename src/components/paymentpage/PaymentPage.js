@@ -21,7 +21,7 @@ const PaymentPage = props => {
   };
 
   const getPayment = () => {
-    return ApiManger.chartdataAll(props.match.params.collegeId).then(setCost);
+    return ApiManger.chartdataAll(props.match.params.collegeId).then(setPayment);
   };
   useEffect(() => {
     getPayment();
@@ -37,7 +37,7 @@ const PaymentPage = props => {
             return (
               <div>
               <h1> {college.name} Payment </h1>
-              <Button onClick={() => {props.history.push(`/addpayment/${college.id}`)}}> Add Cost </Button>
+              <Button onClick={() => {props.history.push(`/addpayment/${college.id}`)}}> Add Payment </Button>
             </div>
             );
           })}
@@ -55,7 +55,11 @@ const PaymentPage = props => {
                <div>
               {year['payments'].map(payment => {
                   return(
-                  <p> {payment.name} ${payment.amount}</p>
+                  <Card key={payment.id} className="card">
+                  <p>{payment.name} ${payment.amount}</p>
+                  <Button>Edit</Button>
+                  <Button>Delete</Button>
+                  </Card>
               )})}
                 </div>
               <ul>

@@ -13,7 +13,7 @@ const NavBar = props => {
           <>
             <li className="nav-item">
               <Link className="nav-link" to="/">
-                College
+                College List
               </Link>
             </li>
             <li className="nav-item">
