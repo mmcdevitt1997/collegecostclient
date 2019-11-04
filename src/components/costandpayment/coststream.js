@@ -25,15 +25,18 @@ const CostStream = props => {
    }
 
   const getCost = () => {
-    return ApiManger.chartdataAll(props.match.params.collegeId).then(setCost);
+    return ApiManger.chartdataAll(props.match.params.collegeId).then(setCost)
+
   };
   useEffect(() => {
     getCost();
     getMyColleges()
   }, []);
+
+
   return (
     <>
-      <h1>My college</h1>
+      <h1>My Cost</h1>
       <Button onClick={() => {props.history.push("/addcollege")}}> Add Cost </Button>
       {costData.map(myCollege=> {
         return (
@@ -41,11 +44,10 @@ const CostStream = props => {
           <Card key={myCollege.id} className="card">
               <h3>{myCollege.name}</h3>
               <h5>${myCollege.yearly_balance}</h5>
-               <div>
 
+               <div>
               {myCollege['costs'].map(cost => {
                   return(<p>${cost.amount}</p>
-
               )})}
                 </div>
               <ul>

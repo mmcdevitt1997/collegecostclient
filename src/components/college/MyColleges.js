@@ -33,6 +33,7 @@ const MyColleges = props => {
         <>
           <h1>My college</h1>
           <Button onClick={() => {props.history.push("/addcollege")}}> Add College</Button>
+          
           {myColleges.map(myCollege=> {
             return (
 
@@ -46,7 +47,9 @@ const MyColleges = props => {
                   <button onClick={() => deleteMyCollege(myCollege.id)}>
                     Delete
                   </button>
-                  <button onClick={() => {props.history.push(`/costpage/${myCollege.id}`)}}>College Graph</button>
+                  <button onClick={() => {props.history.push(`/barchart/${myCollege.id}`)}}>College Graph</button>
+                  <button onClick={() => {props.history.push(`/costpage/${myCollege.id}`)}}>Cost Page</button>
+                  <button onClick={() => {props.history.push(`/paymentpage/${myCollege.id}`)}}>Payment Page</button>
                 </ul>
               </Card>
             );

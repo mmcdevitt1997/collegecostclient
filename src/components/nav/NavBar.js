@@ -17,17 +17,6 @@ const NavBar = props => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/costs">
-                Costs
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/debts">
-                debts
-              </Link>
-            </li>
-
-            <li className="nav-item">
               <button
                 className="nav-link fakeLink logout-link"
                 onClick={() => {

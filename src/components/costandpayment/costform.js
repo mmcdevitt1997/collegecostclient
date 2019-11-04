@@ -59,18 +59,7 @@ const AddCostForm = props => {
               })}
             </select>
           </div>
-          <div>
-            <select type="costtype" name="costtype" ref={costtype}>
-            <option>Select Cost Type</option>
-              {costType.map(costtype=> {
-                return (
-                  <option key={costtype.id} id={costtype.id} value={costtype.id}>
-                    {costtype.name}
-                  </option>
-                );
-              })}
-            </select>
-            </div>
+
 
           <button onClick={e => addCost(e)}>Add Cost</button>
         </form>
