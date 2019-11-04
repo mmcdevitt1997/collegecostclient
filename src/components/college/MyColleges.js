@@ -20,7 +20,7 @@ const MyColleges = props => {
      return ApiManger.getAll("colleges").then(setMyColleges)
     }
     const deleteMyCollege = id => {
-        ApiManger.delete("colleges", id)
+        ApiManger.delete("colleges", id).then(getMyColleges);
     }
     const updateMyCollege = (id) => {
         ApiManger.put("colleges", id).then(getMyColleges)
@@ -31,7 +31,7 @@ const MyColleges = props => {
 
       return (
         <>
-          <h1>My college</h1>
+          <h1>My College List</h1>
           <Button onClick={() => {props.history.push("/addcollege")}}> Add College</Button>
 
           {myColleges.map(myCollege=> {

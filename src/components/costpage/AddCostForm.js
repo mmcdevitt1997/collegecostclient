@@ -21,6 +21,10 @@ const AddCost = e => {
       ApiManger.post("costs", AddCostInfo).then(() => {
         props.history.push(`/costpage/${props.match.params.collegeId}`)
       })}
+
+
+      
+
       const getYears = () => {
         ApiManger.chartdataAll(props.match.params.collegeId).then(response => {
           setyear(response);
