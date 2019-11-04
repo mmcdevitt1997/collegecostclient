@@ -11,14 +11,14 @@ const CostPage = props => {
 
 
   const getMyColleges = () => {
-    return ApiManger.getAll("colleges").then(setMyColleges);
-  };
-  const deleteMyCollege = id => {
-    ApiManger.delete(id);
-  };
-  const updateMyCollege = id => {
-    ApiManger.put("college", id).then(getMyColleges);
-  };
+    return ApiManger.getAll("colleges").then(setMyColleges)
+   }
+   const deleteCost = id => {
+       ApiManger.delete("costs", id).then(getCost)
+   }
+   const updateMyCollege = (id) => {
+       ApiManger.put("colleges", id).then(getMyColleges)
+   }
 
   const getCost = () => {
     return ApiManger.chartdataAll(props.match.params.collegeId).then(setCost);
@@ -49,19 +49,21 @@ const CostPage = props => {
           <Card key={year.id} className="card">
             <div>
               <h3>{year.name}</h3>
-              <h5>${year.yearly_balance}</h5>
+              <h5> Yearly Balance ${year.yearly_balance}</h5>
               </div>
 
                <div>
               {year['costs'].map(cost => {
                   return(
-                  <p> {cost.name} ${cost.amount}</p>
+                    <Card key={cost.id} className="card">
+                    <p>{cost.name} ${cost.amount}</p>
+                    <Button>Edit</Button>
+                    <button onClick={() => deleteCost(cost.id)}> Delete </button>
+                    </Card>
               )})}
                 </div>
               <ul>
               <br />
-              <button onClick={() => {props.history.push(`/costpage/${year.id}`)}}>Edit</button>
-              <button onClick={() => {props.history.push(`/costpage/${year.id}`)}}>Delete</button>
             </ul>
           </Card>
         </div>

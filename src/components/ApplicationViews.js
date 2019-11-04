@@ -44,6 +44,7 @@ const ApplicationViews = () => {
           else return <Redirect to="/login" />;
         }}
       />
+      
 
       <Route
         exact

@@ -13,8 +13,8 @@ const PaymentPage = props => {
   const getMyColleges = () => {
     return ApiManger.getAll("colleges").then(setMyColleges);
   };
-  const deleteMyCollege = id => {
-    ApiManger.delete(id);
+  const deletePayment = id => {
+    ApiManger.delete("payments", id).then(getPayment)
   };
   const updateMyCollege = id => {
     ApiManger.put("college", id).then(getMyColleges);
@@ -58,7 +58,7 @@ const PaymentPage = props => {
                   <Card key={payment.id} className="card">
                   <p>{payment.name} ${payment.amount}</p>
                   <Button>Edit</Button>
-                  <Button>Delete</Button>
+                  <Button onClick={() => deletePayment(payment.id)}> Delete</Button>
                   </Card>
               )})}
                 </div>
