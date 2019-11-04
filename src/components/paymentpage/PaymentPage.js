@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import ApiManger from "../../modules/APIManager";
 import { Card, CardTitle, Button, CardBody, CardSubtitle } from "reactstrap";
-import CostYearly from "./CostYearly"
 
-const CostPage = props => {
+
+const PaymentPage = props => {
   const college = useRef()
-  const [costData, setCost] = useState([]);
+  const [paymentData, setPayment] = useState([]);
   const [myColleges, setMyColleges] = useState([]);
 
 
@@ -20,11 +20,11 @@ const CostPage = props => {
     ApiManger.put("college", id).then(getMyColleges);
   };
 
-  const getCost = () => {
-    return ApiManger.chartdataAll(props.match.params.collegeId).then(setCost);
+  const getPayment = () => {
+    return ApiManger.chartdataAll(props.match.params.collegeId).then(setPayment);
   };
   useEffect(() => {
-    getCost();
+    getPayment();
     getMyColleges();
   }, []);
 
@@ -36,14 +36,14 @@ const CostPage = props => {
           {myColleges.map(college => {
             return (
               <div>
-              <h1> {college.name} Cost </h1>
-              <Button onClick={() => {props.history.push(`/addcost/${college.id}`)}}> Add Cost </Button>
+              <h1> {college.name} Payment </h1>
+              <Button onClick={() => {props.history.push(`/addpayment/${college.id}`)}}> Add Payment </Button>
             </div>
             );
           })}
 
         </div>
-        {costData.map(year => {
+        {paymentData.map(year => {
           return (
         <div>
           <Card key={year.id} className="card">
@@ -53,15 +53,19 @@ const CostPage = props => {
               </div>
 
                <div>
-              {year['costs'].map(cost => {
+              {year['payments'].map(payment => {
                   return(
-                  <p> {cost.name} ${cost.amount}</p>
+                  <Card key={payment.id} className="card">
+                  <p>{payment.name} ${payment.amount}</p>
+                  <Button>Edit</Button>
+                  <Button>Delete</Button>
+                  </Card>
               )})}
                 </div>
               <ul>
               <br />
-              <button onClick={() => {props.history.push(`/costpage/${year.id}`)}}>Edit</button>
-              <button onClick={() => {props.history.push(`/costpage/${year.id}`)}}>Delete</button>
+              <button onClick={() => {props.history.push(`/paymentpage/${year.id}`)}}>Edit</button>
+              <button onClick={() => {props.history.push(`/paymentpage/${year.id}`)}}>Delete</button>
             </ul>
           </Card>
         </div>
@@ -69,4 +73,4 @@ const CostPage = props => {
     </>
   );
 };
-export default CostPage;
+export default PaymentPage;
