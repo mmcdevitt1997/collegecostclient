@@ -9,8 +9,9 @@ import AddCollegeForm from "./college/AddCollegeForm";
 import AddCostForm from "./costpage/AddCostForm"
 import PaymentPage from "./paymentpage/PaymentPage"
 import AddPaymentForm from "./paymentpage/AddPaymentForm"
-
+import EditPaymentForm from "./paymentpage/EditPaymentForm"
 import CostPage from "../components/costpage/CostPage";
+import EditCostForm from "../components/costpage/EditCostForm"
 
 const ApplicationViews = () => {
   const { isAuthenticated } = useSimpleAuth();
@@ -44,7 +45,24 @@ const ApplicationViews = () => {
           else return <Redirect to="/login" />;
         }}
       />
-      
+
+       <Route
+        exact
+        path="/editpaymentpage/:collegeId(\d+)"
+        render={props => {
+          if (isAuthenticated()) return <EditPaymentForm  {...props} />;
+          else return <Redirect to="/login" />;
+        }}
+      />
+         <Route
+        exact
+        path="/editcostpage/:collegeId(\d+)"
+        render={props => {
+          if (isAuthenticated()) return <EditCostForm  {...props} />;
+          else return <Redirect to="/login" />;
+        }}
+      />
+
 
       <Route
         exact

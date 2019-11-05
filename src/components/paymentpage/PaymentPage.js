@@ -57,8 +57,8 @@ const PaymentPage = props => {
                   return(
                   <Card key={payment.id} className="card">
                   <p>{payment.name} ${payment.amount}</p>
-                  <Button>Edit</Button>
                   <Button onClick={() => deletePayment(payment.id)}> Delete</Button>
+                  <Button onClick={() => {props.history.push(`/editpaymentpage/${payment.id}`)}}>Edit</Button>
                   </Card>
               )})}
                 </div>
