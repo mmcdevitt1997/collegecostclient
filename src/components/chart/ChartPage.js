@@ -1,21 +1,22 @@
+import React, { useRef, useEffect, useState } from "react";
 
-// import Chart from "./BarChart"
+import Chart from "./BarChart"
 
-// const ChartPage = props => {
+const ChartPage = props => {
 
 
-//     return (
-//         <>
-//           <h1>Charts</h1>
-//             return (
-//               <div className="Chart">
-//                 <Chart  {...props} />
+    return (
+        <>
+          <h1>Charts</h1>
 
-//               </div>
-//             );
-//           })
-//         </>
-//       );
-//     };
+              <div className="Chart">
+                <Chart  {...props} />
 
-//     export default ChartPage;
+              </div>
+       
+
+        </>
+      );
+    };
+
+    export default ChartPage;
