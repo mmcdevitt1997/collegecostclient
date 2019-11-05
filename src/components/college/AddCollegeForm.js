@@ -27,7 +27,7 @@ const addCollege= e => {
               <label htmlFor="numberofyears">Number of years in school</label>
               <input type="number" name="numberofyears" ref={numberofyears} placeholder="Years in College" />
             </div>
-            <button onClick={e =>addCollege (e)}>Add to product List</button>
+            <button onClick={e =>addCollege (e)}>Add College</button>
           </form>
         </React.Fragment>
       );

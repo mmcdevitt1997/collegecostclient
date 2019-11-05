@@ -40,7 +40,7 @@ const AddPayment = e => {
             </div>
             <div>
               <label htmlFor="amount">Payment Amount $</label>
-              <input type="number" name="amount" ref={amount} placeholder="Payment Amount $" />
+              <input type="number" min="0" name="amount" ref={amount} placeholder="Payment Amount $" />
             </div>
             <div>
             <label htmlFor="amount">Year: </label>

@@ -21,7 +21,7 @@ const EditCostForm = props => {
       amount: parseInt(amount.current.value)
     };
     APIManger.put("costs", UpdateCostInfo).then(() => {
-      props.history.push("/");
+      props.history.push(`/costpage/${props.match.params.collegeId}`);
     });
   };
 
