@@ -36,8 +36,8 @@ const PaymentPage = props => {
               props.history.push(`/addpayment/${myColleges.id}`);
             }}
           >
-            {" "}
-            Add Payment{" "}
+
+            Add Payment
           </Button>
         </div>
       </div>

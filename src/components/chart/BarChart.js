@@ -18,12 +18,12 @@ const Chart = props => {
   return (
     <ResponsiveBar
       data={chartData}
-      keys={["payment","cost"]}
+      keys={["cost","payment"]}
       indexBy="year"
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       padding={0.3}
       groupMode="grouped"
-      colors={{scheme: 'nivo'}}
+      colors={{scheme: 'set1'}}
       defs={[
         {
           id: "dots",
@@ -65,7 +65,7 @@ const Chart = props => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "year",
+        legend: "years",
         legendPosition: "middle",
         legendOffset: 32
       }}
@@ -73,7 +73,7 @@ const Chart = props => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "cost",
+        legend: "cost $",
         legendPosition: "middle",
         legendOffset: -40
       }}

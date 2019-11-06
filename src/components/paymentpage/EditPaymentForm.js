@@ -24,7 +24,8 @@ const EditPaymentForm = props => {
 
     };
     APIManger.put("payments", UpdatePaymentInfo).then(() => {
-      props.history.push("`/paymentpage/${props.match.params.collegeId}`");
+        props.history.push(`/paymentpage/${props.match.params.collegeId}`);
+
     });
   };
 
