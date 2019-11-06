@@ -34,7 +34,7 @@ const AddCollegeForm = props => {
       <Container>
         <Row>
           <Col sm="12" md={{ size: 6, offset: 3 }}>
-          <FormText className="h3 mb-3 font-weight-normal, formPaymentTitle">Add College</FormText>
+          <FormText className="h3 mb-3 font-weight-normal, addTitleForm">Add College</FormText>
             <Card className="formCenter">
               <Form>
                <FormGroup className="contentForm">
@@ -59,7 +59,7 @@ const AddCollegeForm = props => {
                   />
                 </FormGroup>
                 <Button className="buttonForm" onClick={e => addCollege(e)}>
-                  Add College
+                  Submit
                 </Button>
               </Form>
             </Card>

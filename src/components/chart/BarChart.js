@@ -10,7 +10,6 @@ const Chart = props => {
       setChartData(response)
      });
   };
-
   useEffect(() => {
     getChartData();
   }, []);

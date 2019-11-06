@@ -13,7 +13,8 @@ import EditPaymentForm from "./paymentpage/EditPaymentForm";
 import CostPage from "../components/costpage/CostPage";
 import EditCostForm from "../components/costpage/EditCostForm";
 import EditCollegeForm from "./college/EditCollegeForm";
-import EditYearForm from "./yearpage/EditYearForm"
+import EditYearPaymentForm from "./yearpage/EditYearPaymentForm"
+import EditYearCostForm from "./yearpage/EditYearCostForm"
 import ChartPage from "./chart/ChartPage"
 
 
@@ -61,9 +62,18 @@ const ApplicationViews = () => {
 
       <Route
         exact
-        path="/edityearpage/:collegeId(\d+)"
+        path="/editpaymentyearpage/:collegeId(\d+)/:yearId(\d+)"
         render={props => {
-          if (isAuthenticated()) return <EditYearForm {...props} />;
+          if (isAuthenticated()) return <EditYearPaymentForm {...props} />;
+          else return <Redirect to="/login" />;
+        }}
+      />
+
+      <Route
+        exact
+        path="/editcostyearpage/:collegeId(\d+)/:yearId(\d+)"
+        render={props => {
+          if (isAuthenticated()) return <EditYearCostForm {...props} />;
           else return <Redirect to="/login" />;
         }}
       />

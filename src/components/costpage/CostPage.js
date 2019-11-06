@@ -1,24 +1,36 @@
 import React, { useRef, useEffect, useState } from "react";
 import ApiManger from "../../modules/APIManager";
-import { Card, CardTitle, Button, CardBody, CardSubtitle } from "reactstrap";
-import CostYearly from "./CostYearly"
+import CostYearly from "./CostYearly";
+import "./Cost.css";
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Container,
+  Row,
+  Col,
+  Card,
+  CardBody,
+  CardHeader,
+  FormText,
+  Table
+} from "reactstrap";
 
 const CostPage = props => {
-  const college = useRef()
+  const college = useRef();
   const [costData, setCost] = useState([]);
   const [myColleges, setMyColleges] = useState([]);
 
-
-
   const getMyColleges = () => {
-    return ApiManger.get("colleges",(props.match.params.collegeId) ).then(setMyColleges)
-   }
-   const deleteCost = id => {
-       ApiManger.delete("costs", id).then(getCost)
-   }
-   const updateMyCollege = (id) => {
-       ApiManger.put("colleges", id).then(getMyColleges)
-   }
+    return ApiManger.get("colleges", props.match.params.collegeId).then(
+      setMyColleges
+    );
+  };
+  const deleteCost = id => {
+    ApiManger.delete("costs", id).then(getCost);
+  };
+
 
   const getCost = () => {
     return ApiManger.chartdataAll(props.match.params.collegeId).then(setCost);
@@ -30,44 +42,87 @@ const CostPage = props => {
 
   return (
     <>
-      <div>
-              <div>
-              <h1> {myColleges.name} Cost </h1>
-              <Button onClick={() => {props.history.push(`/addcost/${myColleges.id}`)}}> Add Cost </Button>
-            </div>
-
+      <Container>
+        <div>
+          <div>
+            <h1 className="costTitle"> {myColleges.name} Cost </h1>
+            <Button
+              className="addCostButton"
+              onClick={() => {
+                props.history.push(`/addcost/${myColleges.id}`);
+              }}
+            >
+              Add Cost
+            </Button>
+          </div>
         </div>
         {costData.map(year => {
           return (
-        <div>
-
-
-          <Card key={year.id} className="card">
             <div>
-              <h3>{year.name}</h3>
-              <button onClick={() => {props.history.push(`/edityearpage/${year.id}`)}}>Edit Year Name</button>
-              <h5> Yearly Balance ${year.yearly_balance}</h5>
-              <h5> Yearly Cost ${year.cost}</h5>
+              <Card key={year.id} className="card, yearSeparation">
 
-              </div>
+                  <div className="flexYear">
+                    <h3>{year.name}</h3>
+                    <Button
+                      onClick={() => {
+                        props.history.push(`/editcostyearpage/${props.match.params.collegeId}/${year.id}`);
+                      }}
+                    >
+                      Edit Year
+                    </Button>
+                  </div>
+                  <div className="flexYear">
+                    <h5> Yearly Balance ${year.yearly_balance}</h5>
+                    <h5> Yearly Cost ${year.cost}</h5>
+                  </div>
+                <Table>
+                  <thead>
+                    <tr>
+                      <th>Cost Name</th>
+                      <th>Cost Amount</th>
+                    </tr>
+                  </thead>
+                  {year["costs"].map(cost => {
+                    return (
+                        <tbody key={cost.id} >
+                          <tr>
+                            <td>{cost.name}</td>
 
-               <div>
-              {year['costs'].map(cost => {
-                  return(
-                    <Card key={cost.id} className="card">
-                    <p>{cost.name} ${cost.amount}</p>
-                    <Button onClick={() => {props.history.push(`/editcostpage/${props.match.params.collegeId}/${cost.id}`)}}>Edit</Button>
-                    <Button onClick={() => deleteCost(cost.id)}> Delete </Button>
-                    </Card>
-              )})}
-                </div>
+                            <td> ${cost.amount}
 
-              <br />
+                            <div className="costButtonFlex">
+                              <Button
+                                className="costButton"
+                                onClick={() => {
+                                  props.history.push(
+                                    `/editcostpage/${props.match.params.collegeId}/${cost.id}`
+                                  );
+                                }}
+                              >
+                                Edit
+                              </Button>
+                              <Button
+                                className="costButton"
+                                onClick={() => deleteCost(cost.id)}
+                              >
+                                {" "}
+                                X{" "}
+                              </Button>
+                            </div>
+                            </td>
+                          </tr>
+                        </tbody>
 
-          </Card>
+                    );
+                  })}
+                </Table>
 
-        </div>
-        )})}
+                <br />
+              </Card>
+            </div>
+          );
+        })}
+      </Container>
     </>
   );
 };

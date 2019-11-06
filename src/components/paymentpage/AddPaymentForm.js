@@ -48,7 +48,7 @@ const AddPaymentForm = props => {
       <Container>
         <Row>
           <Col sm="12" md={{ size: 6, offset: 3 }}>
-          <FormText className="h3 mb-3 font-weight-normal, formPaymentTitle">Add Payment</FormText>
+          <FormText className="h3 mb-3 font-weight-normal, paymentTitle">Add Payment</FormText>
             <Card className = 'formCenter'>
               <Form>
                 <FormGroup className = "contentForm">

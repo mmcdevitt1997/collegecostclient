@@ -19,7 +19,7 @@ const EditYearForm = props => {
   const name = useRef();
 
   const getYear = () => {
-    APIManger.get("years", props.match.params.collegeId).then(response => {
+    APIManger.get("years", props.match.params.yearId).then(response => {
       setYearFields(response);
     });
   };
@@ -31,7 +31,7 @@ const EditYearForm = props => {
       name: name.current.value
     };
     APIManger.put("years", UpdateYearInfo).then(() => {
-      props.history.push("/");
+      props.history.push(`/paymentpage/${props.match.params.collegeId}`);
     });
   };
 

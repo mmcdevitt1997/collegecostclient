@@ -59,7 +59,7 @@ const EditCostForm = props => {
             />
           </FormGroup>
           <FormGroup>
-            <Button type="submit"> Edit Cost</Button>
+            <Button type="submit"> Submit</Button>
           </FormGroup>
         </Form>
       </main>
