@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import { withRouter } from "react-router-dom"
 import useSimpleAuth from "../hooks/ui/useSimpleAuth"
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import "./Login.css"
 
 
@@ -37,78 +38,78 @@ const Register = props => {
 
     return (
         <main style={{ textAlign: "center" }}>
-            <form className="form--login" onSubmit={handleRegister}>
+            <Form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Register for College Cost</h1>
-                <fieldset>
-                    <label htmlFor="userName"> Username </label>
-                    <input ref={userName} type="text"
+                <FormGroup>
+                    <Label htmlFor="userName"> Username </Label>
+                    <Input ref={userName} type="text"
                         name="userName"
                         className="form-control"
                         placeholder="Username"
                         required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="firstName"> First Name </label>
-                    <input ref={firstName} type="text"
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="firstName"> First Name </Label>
+                    <Input ref={firstName} type="text"
                         name="firstName"
                         className="form-control"
                         placeholder="First name"
                         required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="lastName"> Last Name </label>
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="lastName"> Last Name </Label>
                     <input ref={lastName} type="text"
                         name="lastName"
                         className="form-control"
                         placeholder="Last name"
                         required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputEmail"> Email address </label>
-                    <input ref={email} type="email"
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="inputEmail"> Email address </Label>
+                    <Input ref={email} type="email"
                         name="email"
                         className="form-control"
                         placeholder="Email address"
                         required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputEmail"> Address </label>
-                    <input ref={address} type="text"
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="inputEmail"> Address </Label>
+                    <Input ref={address} type="text"
                         name="address"
                         className="form-control"
                         placeholder="Address"
                         required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputEmail"> Phone Number </label>
-                    <input ref={phoneNumber} type="text"
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="inputEmail"> Phone Number </Label>
+                    <Input ref={phoneNumber} type="text"
                         name="phoneNumber"
                         className="form-control"
                         placeholder="Phone number"
                         required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputPassword"> Password </label>
-                    <input ref={password} type="password"
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="inputPassword"> Password </Label>
+                    <Input ref={password} type="password"
                         name="password"
                         className="form-control"
                         placeholder="Password"
                         required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="verifyPassword"> Verify Password </label>
-                    <input ref={verifyPassword} type="password"
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="verifyPassword"> Verify Password </Label>
+                    <Input ref={verifyPassword} type="password"
                         name="verifyPassword"
                         className="form-control"
                         placeholder="Verify password"
                         required />
-                </fieldset>
-                <fieldset>
-                    <button type="submit">
+                </FormGroup>
+                <FormGroup>
+                    <Button type="submit">
                         Sign in
-                    </button>
-                </fieldset>
-            </form>
+                    </Button>
+                </FormGroup>
+            </Form>
         </main>
     )
 }
