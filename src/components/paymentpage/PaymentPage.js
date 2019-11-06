@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import ApiManger from "../../modules/APIManager";
 import { Card, CardTitle, Button, CardBody, CardSubtitle } from "reactstrap";
+import "./Payment.css"
 
 const PaymentPage = props => {
-  const college = useRef();
   const [paymentData, setPayment] = useState([]);
   const [myColleges, setMyColleges] = useState([]);
 
@@ -71,7 +71,7 @@ const PaymentPage = props => {
                       </Button>
                       <Button
                         onClick={() => {
-                          props.history.push(`/editpaymentpage/${payment.id}`);
+                          props.history.push(`/editpaymentpage/${props.match.params.collegeId}/${payment.id}`);
                         }}
                       >
                         Edit

@@ -14,3 +14,27 @@ code {
 .Chart {
   height: 300px;
 }
+.formCenter{
+  display: inline-block;
+  margin: 10%;
+  text-align: left;
+  margin-top: 5%;
+  padding: 5%;
+
+}
+.buttonForm{
+  margin-left: 26%;
+  margin-bottom: 20px;
+}
+
+.yearForm{
+  margin-left: 20%;
+}
+
+
+.formTitle{
+  margin-top: 5%;
+}
+.formYearTitle{
+  margin-left: 25%;
+}

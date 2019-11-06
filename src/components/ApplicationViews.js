@@ -52,7 +52,7 @@ const ApplicationViews = () => {
 
       <Route
         exact
-        path="/editpaymentpage/:collegeId(\d+)"
+        path="/editpaymentpage/:collegeId(\d+)/:yearId(\d+)"
         render={props => {
           if (isAuthenticated()) return <EditPaymentForm {...props} />;
           else return <Redirect to="/login" />;
@@ -79,7 +79,7 @@ const ApplicationViews = () => {
 
       <Route
         exact
-        path="/editcostpage/:collegeId(\d+)"
+        path="/editcostpage/:collegeId(\d+)/:yearId(\d+)"
         render={props => {
           if (isAuthenticated()) return <EditCostForm {...props} />;
           else return <Redirect to="/login" />;

@@ -1,5 +1,18 @@
 import React, { useRef, useEffect, useState } from "react";
 import APIManger from "../../modules/APIManager";
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Container,
+  Row,
+  Col,
+  Card,
+  CardBody,
+  CardHeader,
+  FormText
+} from "reactstrap";
 
 const EditYearForm = props => {
   const [yearEdit, setYearFields] = useState([]);
@@ -15,27 +28,29 @@ const EditYearForm = props => {
     e.preventDefault();
     const UpdateYearInfo = {
       id: yearEdit.id,
-      name: name.current.value,
+      name: name.current.value
     };
     APIManger.put("years", UpdateYearInfo).then(() => {
       props.history.push("/");
     });
   };
 
-
   useEffect(() => {
     getYear();
   }, []);
 
   return (
-    <>
-      <main style={{ textAlign: "center" }}>
-
-          <h1 className="h3 mb-3 font-weight-normal">Edit Form</h1>
-
-              <form  onSubmit={handleUpdate}>
-                <fieldset>
-                  <label htmlFor="inputAddress"> Year Name </label>
+    <React.Fragment>
+      <Container>
+        <Row>
+          <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <FormText className="h3 mb-3 font-weight-normal, , formYearTitle">
+              Edit Year
+            </FormText>
+            <Card className="formCenter">
+              <Form onSubmit={handleUpdate}>
+                <FormGroup className="contentForm">
+                  <Label htmlFor="inputAddress"> Year Title </Label>
                   <input
                     ref={name}
                     type="text"
@@ -44,17 +59,16 @@ const EditYearForm = props => {
                     defaultValue={yearEdit.name}
                     required
                   />
-                </fieldset>
-
-                <div>
-            <button type="submit">Edit</button>
-          </div>
-              </form>
-
-
-
-      </main>
-    </>
+                </FormGroup>
+                <Button className="buttonForm" type="submit">
+                  Submit
+                </Button>
+              </Form>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </React.Fragment>
   );
 };
 

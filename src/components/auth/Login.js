@@ -33,17 +33,17 @@ const Login = props => {
     return (
         <main style={{textAlign:"center"}}>
             <Form className="form--login" onSubmit={handleLogin}>
-                <FormText className="h3 mb-3 font-weight-normal">Please sign in</FormText>
+                <FormText className="h3 mb-3 font-weight-normal">Please sign in</FormText >
                 <FormGroup>
                     <Label htmlFor="inputEmail"> Username </Label>
-                    <Input ref={username} type="username"
+                    <input ref={username} type="username"
                         className="form-control"
                         placeholder="Username"
                         required autoFocus />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="inputPassword"> Password </Label>
-                    <Input ref={password} type="password"
+                    <input ref={password} type="password"
                         id="password"
                         className="form-control"
                         placeholder="Password"

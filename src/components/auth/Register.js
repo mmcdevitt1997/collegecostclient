@@ -39,10 +39,10 @@ const Register = props => {
     return (
         <main style={{ textAlign: "center" }}>
             <Form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Register for College Cost</h1>
+                <FormText  className="h3 mb-3 font-weight-normal">Register for College Cost</FormText >
                 <FormGroup>
                     <Label htmlFor="userName"> Username </Label>
-                    <Input ref={userName} type="text"
+                    <input ref={userName} type="text"
                         name="userName"
                         className="form-control"
                         placeholder="Username"
@@ -66,7 +66,7 @@ const Register = props => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="inputEmail"> Email address </Label>
-                    <Input ref={email} type="email"
+                    <input ref={email} type="email"
                         name="email"
                         className="form-control"
                         placeholder="Email address"
@@ -74,7 +74,7 @@ const Register = props => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="inputEmail"> Address </Label>
-                    <Input ref={address} type="text"
+                    <input ref={address} type="text"
                         name="address"
                         className="form-control"
                         placeholder="Address"
@@ -82,7 +82,7 @@ const Register = props => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="inputEmail"> Phone Number </Label>
-                    <Input ref={phoneNumber} type="text"
+                    <input ref={phoneNumber} type="text"
                         name="phoneNumber"
                         className="form-control"
                         placeholder="Phone number"
@@ -90,7 +90,7 @@ const Register = props => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="inputPassword"> Password </Label>
-                    <Input ref={password} type="password"
+                    <input ref={password} type="password"
                         name="password"
                         className="form-control"
                         placeholder="Password"
@@ -98,7 +98,7 @@ const Register = props => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="verifyPassword"> Verify Password </Label>
-                    <Input ref={verifyPassword} type="password"
+                    <input ref={verifyPassword} type="password"
                         name="verifyPassword"
                         className="form-control"
                         placeholder="Verify password"

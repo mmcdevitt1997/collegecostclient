@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import APIManger from "../../modules/APIManager";
+import { Button, Form, FormGroup, Label, FormText } from 'reactstrap';
 
 const EditCollegeForm = props => {
   const [collegeEdit, setCollegeFields] = useState([]);
@@ -30,11 +31,11 @@ const EditCollegeForm = props => {
   return (
     <>
       <main style={{ textAlign: "center" }}>
-        <h1 className="h3 mb-3 font-weight-normal">Edit College Form</h1>
+        <FormText className="h3 mb-3 font-weight-normal">Edit College Form</FormText>
 
-        <form onSubmit={handleUpdate}>
-          <fieldset>
-            <label htmlFor="inputAddress"> College Name </label>
+        <Form onSubmit={handleUpdate}>
+          <FormGroup>
+            <Label htmlFor="inputAddress"> College Name </Label>
             <input
               ref={name}
               type="text"
@@ -43,11 +44,11 @@ const EditCollegeForm = props => {
               defaultValue={collegeEdit.name}
               required
             />
-          </fieldset>
-          <div>
-            <button type="submit"> Edit</button>
-          </div>
-        </form>
+          </FormGroup>
+          <FormGroup>
+            <Button type="submit"> SubmitEdit</Button>
+          </FormGroup>
+        </Form>
       </main>
     </>
   );

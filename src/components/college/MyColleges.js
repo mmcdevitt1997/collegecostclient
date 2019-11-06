@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import ApiManger from "../../modules/APIManager"
 import useSimpleAuth from "../hooks/ui/useSimpleAuth"
+import "./College.css"
 import {
-
-  Card,
-  CardTitle,
   Button,
+  Form,
+  FormGroup,
+  Label,
+  Container,
+  Row,
+  Col,
+  Card,
   CardBody,
-  CardSubtitle
-} from 'reactstrap'
-
+  CardHeader,
+  FormText
+} from "reactstrap";
 
 
 const MyColleges = props => {
@@ -31,31 +36,39 @@ const MyColleges = props => {
 
       return (
         <>
-          <h1>My College List</h1>
-          <Button onClick={() => {props.history.push("/addcollege")}}> Add College</Button>
+         <Container>
+          <h1 className = "collegeTitle" >College List</h1>
+          <Button className = "collegeButton" onClick={() => {props.history.push("/addcollege")}}> Add College</Button>
 
           {myColleges.map(myCollege=> {
             return (
 
-              <Card key={myCollege.id} className="card">
-                  <h3>{myCollege.name}</h3>
-                <ul>
+              <Card key={myCollege.id} className="card, collegeCard">
+                  <h2 className = "collegeTitleSub" >{myCollege.name}</h2>
+                  <div className= "parentButton">
+                  <Button onClick={() => {props.history.push(`/costpage/${myCollege.id}`)}}>Cost Page</Button>
+                  <Button onClick={() => {props.history.push(`/paymentpage/${myCollege.id}`)}}>Payment Page</Button>
+                  <Button onClick={() => {props.history.push(`/chartpage/${myCollege.id}`)}}>College Graph</Button>
+
+                  </div>
+                  <div className = "collegeContent">
                   <CardBody> Total Cost ${myCollege.college_total_cost}</CardBody>
                   <CardBody> Total Payment ${myCollege.college_total_payment}</CardBody>
                   <CardBody> Total balance ${myCollege.college_balance}</CardBody>
+                  </div>
                   <br />
-                  <button onClick={() => deleteMyCollege(myCollege.id)}>
-                    Delete
-                  </button>
 
-                  <button onClick={() => {props.history.push(`/chartpage/${myCollege.id}`)}}>College Graph</button>
-                  <button onClick={() => {props.history.push(`/costpage/${myCollege.id}`)}}>Cost Page</button>
-                  <button onClick={() => {props.history.push(`/paymentpage/${myCollege.id}`)}}>Payment Page</button>
-                  <button onClick={() => {props.history.push(`/editcollegepage/${myCollege.id}`)}}>Edit</button>
-                </ul>
+                  <div className = "editDeleteButton">
+                  <Button onClick={() => deleteMyCollege(myCollege.id)}>
+                   X
+                  </Button>
+                  <Button onClick={() => {props.history.push(`/editcollegepage/${myCollege.id}`)}}>Edit</Button>
+                  </div>
+
               </Card>
             );
           })}
+          </Container>
         </>
       );
 
