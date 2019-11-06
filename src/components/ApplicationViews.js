@@ -6,11 +6,17 @@ import Register from "./auth/Register";
 import Login from "./auth/Login";
 import MyCollege from "./college/MyColleges";
 import AddCollegeForm from "./college/AddCollegeForm";
-import AddCostForm from "./costpage/AddCostForm"
-import PaymentPage from "./paymentpage/PaymentPage"
-import AddPaymentForm from "./paymentpage/AddPaymentForm"
-
+import AddCostForm from "./costpage/AddCostForm";
+import PaymentPage from "./paymentpage/PaymentPage";
+import AddPaymentForm from "./paymentpage/AddPaymentForm";
+import EditPaymentForm from "./paymentpage/EditPaymentForm";
 import CostPage from "../components/costpage/CostPage";
+import EditCostForm from "../components/costpage/EditCostForm";
+import EditCollegeForm from "./college/EditCollegeForm";
+import EditYearForm from "./yearpage/EditYearForm"
+import ChartPage from "./chart/ChartPage"
+
+
 
 const ApplicationViews = () => {
   const { isAuthenticated } = useSimpleAuth();
@@ -30,7 +36,6 @@ const ApplicationViews = () => {
         exact
         path="/costpage/:collegeId(\d+)"
         render={props => {
-
           if (isAuthenticated()) return <CostPage {...props} />;
           else return <Redirect to="/login" />;
         }}
@@ -40,11 +45,54 @@ const ApplicationViews = () => {
         exact
         path="/paymentpage/:collegeId(\d+)"
         render={props => {
-          if (isAuthenticated()) return <PaymentPage  {...props} />;
+          if (isAuthenticated()) return <PaymentPage {...props} />;
           else return <Redirect to="/login" />;
         }}
       />
-      
+
+      <Route
+        exact
+        path="/editpaymentpage/:collegeId(\d+)"
+        render={props => {
+          if (isAuthenticated()) return <EditPaymentForm {...props} />;
+          else return <Redirect to="/login" />;
+        }}
+      />
+
+      <Route
+        exact
+        path="/edityearpage/:collegeId(\d+)"
+        render={props => {
+          if (isAuthenticated()) return <EditYearForm {...props} />;
+          else return <Redirect to="/login" />;
+        }}
+      />
+
+        <Route
+        exact
+        path="/chartpage/:collegeId(\d+)"
+        render={props => {
+          if (isAuthenticated()) return <ChartPage {...props} />;
+          else return <Redirect to="/login" />;
+        }}
+      />
+
+      <Route
+        exact
+        path="/editcostpage/:collegeId(\d+)"
+        render={props => {
+          if (isAuthenticated()) return <EditCostForm {...props} />;
+          else return <Redirect to="/login" />;
+        }}
+      />
+      <Route
+        exact
+        path="/editcollegepage/:collegeId(\d+)"
+        render={props => {
+          if (isAuthenticated()) return <EditCollegeForm {...props} />;
+          else return <Redirect to="/login" />;
+        }}
+      />
 
       <Route
         exact
@@ -62,11 +110,11 @@ const ApplicationViews = () => {
           else return <Redirect to="/login" />;
         }}
       />
- <Route
+      <Route
         exact
         path="/addpayment/:collegeId(\d+)"
         render={props => {
-          if (isAuthenticated()) return <AddPaymentForm  {...props} />;
+          if (isAuthenticated()) return <AddPaymentForm {...props} />;
           else return <Redirect to="/login" />;
         }}
       />

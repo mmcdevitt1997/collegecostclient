@@ -48,9 +48,10 @@ const MyColleges = props => {
                     Delete
                   </button>
 
-                  <button onClick={() => {props.history.push(`/barchart/${myCollege.id}`)}}>College Graph</button>
+                  <button onClick={() => {props.history.push(`/chartpage/${myCollege.id}`)}}>College Graph</button>
                   <button onClick={() => {props.history.push(`/costpage/${myCollege.id}`)}}>Cost Page</button>
                   <button onClick={() => {props.history.push(`/paymentpage/${myCollege.id}`)}}>Payment Page</button>
+                  <button onClick={() => {props.history.push(`/editcollegepage/${myCollege.id}`)}}>Edit</button>
                 </ul>
               </Card>
             );

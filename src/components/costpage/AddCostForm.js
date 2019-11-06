@@ -23,7 +23,7 @@ const AddCost = e => {
       })}
 
 
-      
+
 
       const getYears = () => {
         ApiManger.chartdataAll(props.match.params.collegeId).then(response => {
@@ -44,7 +44,7 @@ const AddCost = e => {
             </div>
             <div>
               <label htmlFor="amount">Cost Amount $</label>
-              <input type="number" name="amount" ref={amount} placeholder="Cost Amount $" />
+              <input type="number" min="0" name="amount" ref={amount} placeholder="Cost Amount $" />
             </div>
             <div>
             <label htmlFor="amount">Year: </label>

@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import "./Login.css"
 import useSimpleAuth from "../hooks/ui/useSimpleAuth";
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
 const Login = props => {
@@ -31,7 +32,7 @@ const Login = props => {
 
     return (
         <main style={{textAlign:"center"}}>
-            <form className="form--login" onSubmit={handleLogin}>
+            <Form className="form--login" onSubmit={handleLogin}>
                 <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <fieldset>
                     <label htmlFor="inputEmail"> Username </label>
@@ -53,7 +54,7 @@ const Login = props => {
                         Sign in
                     </button>
                 </fieldset>
-            </form>
+            </Form>
         </main>
     )
 }
