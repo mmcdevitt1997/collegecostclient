@@ -5,10 +5,19 @@
 
 a{
     color: whitesmoke;
+    padding:0px, 0px ;
 }
 .navButton{
     margin: -19%;
-    margin-top: 5%;
-    margin-bottom: 15%;
+    margin-top: 15%;
+    margin-bottom: 5%;
 
+}
+.collegeListbtn {
+    margin-top: 0.9%;
+    margin-right: 85%;
+}
+
+.logo {
+    padding:0px, 0px ;
 }

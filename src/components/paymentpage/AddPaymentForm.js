@@ -9,10 +9,7 @@ import {
   Row,
   Col,
   Card,
-  CardBody,
-  CardHeader,
   FormText
-
 } from "reactstrap";
 
 const AddPaymentForm = props => {
@@ -48,10 +45,12 @@ const AddPaymentForm = props => {
       <Container>
         <Row>
           <Col sm="12" md={{ size: 6, offset: 3 }}>
-          <FormText className="h3 mb-3 font-weight-normal, paymentTitle">Add Payment</FormText>
-            <Card className = 'formCenter'>
+            <FormText className="h3 mb-3 font-weight-normal, paymentTitle">
+              Add Payment
+            </FormText>
+            <Card className="formCenter">
               <Form>
-                <FormGroup className = "contentForm">
+                <FormGroup className="contentForm">
                   <Label htmlFor="name">Name of Payment: </Label>
                   <input
                     type="text"
@@ -60,7 +59,7 @@ const AddPaymentForm = props => {
                     placeholder="Name"
                   />
                 </FormGroup>
-                <FormGroup className = "contentForm">
+                <FormGroup className="contentForm">
                   <Label htmlFor="amount">Payment Amount: $ </Label>
                   <input
                     type="number"
@@ -70,7 +69,7 @@ const AddPaymentForm = props => {
                     placeholder="Payment Amount $ "
                   />
                 </FormGroup>
-                <FormGroup className= "yearForm">
+                <FormGroup className="yearForm">
                   <Label htmlFor="amount">Year: </Label>
                   <select type="year" name="year" ref={year}>
                     <option>Select Year</option>
@@ -83,7 +82,9 @@ const AddPaymentForm = props => {
                     })}
                   </select>
                 </FormGroup>
-                <Button className = 'buttonForm' onClick={e => AddPayment(e)}>Add Payment</Button>
+                <Button className="buttonForm" onClick={e => AddPayment(e)}>
+                  Add Payment
+                </Button>
               </Form>
             </Card>
           </Col>

@@ -3,8 +3,11 @@
     margin-bottom: 25px;
   }
 .costTitle{
-    margin-left: 32%;
+    margin-left: 35%;
     margin-bottom: 25px;
+  }
+  .costPageTitle{
+    text-align: center;
   }
   .flexYear{
     display: flex;

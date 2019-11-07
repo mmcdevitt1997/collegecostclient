@@ -1,34 +1,23 @@
 import React, { useState, useEffect } from "react";
 import ApiManger from "../../modules/APIManager"
-import useSimpleAuth from "../hooks/ui/useSimpleAuth"
+
 import "./College.css"
 import {
   Button,
-  Form,
-  FormGroup,
-  Label,
   Container,
-  Row,
-  Col,
   Card,
   CardBody,
-  CardHeader,
-  FormText
 } from "reactstrap";
 
 
 const MyColleges = props => {
     const [myColleges, setMyColleges] = useState([]);
-    const { isAuthenticated } = useSimpleAuth();
 
     const getMyColleges = () => {
      return ApiManger.getAll("colleges").then(setMyColleges)
     }
     const deleteMyCollege = id => {
         ApiManger.delete("colleges", id).then(getMyColleges);
-    }
-    const updateMyCollege = (id) => {
-        ApiManger.put("colleges", id).then(getMyColleges)
     }
     useEffect(() => {
         getMyColleges();
@@ -46,15 +35,15 @@ const MyColleges = props => {
               <Card key={myCollege.id} className="card, collegeCard">
                   <h2 className = "collegeTitleSub" >{myCollege.name}</h2>
                   <div className= "parentButton">
-                  <Button onClick={() => {props.history.push(`/costpage/${myCollege.id}`)}}>Cost Page</Button>
-                  <Button onClick={() => {props.history.push(`/paymentpage/${myCollege.id}`)}}>Payment Page</Button>
-                  <Button onClick={() => {props.history.push(`/chartpage/${myCollege.id}`)}}>College Graph</Button>
+                  <Button className= "costbtn" onClick={() => {props.history.push(`/costpage/${myCollege.id}`)}}>Cost Page</Button>
+                  <Button className= "paymentbtn" onClick={() => {props.history.push(`/paymentpage/${myCollege.id}`)}}>Payment Page</Button>
+                  <Button  className= "graphbtn" onClick={() => {props.history.push(`/chartpage/${myCollege.id}`)}}>College Graph</Button>
 
                   </div>
                   <div className = "collegeContent">
-                  <CardBody> Total Cost ${myCollege.college_total_cost}</CardBody>
-                  <CardBody> Total Payment ${myCollege.college_total_payment}</CardBody>
-                  <CardBody> Total balance ${myCollege.college_balance}</CardBody>
+                  <CardBody className = "redText"> Total Cost ${myCollege.college_total_cost}</CardBody>
+                  <CardBody className = "blueText"> Total Payment ${myCollege.college_total_payment}</CardBody>
+                  <CardBody className = "greenText"> Total Balance ${myCollege.college_balance}</CardBody>
                   </div>
                   <br />
 

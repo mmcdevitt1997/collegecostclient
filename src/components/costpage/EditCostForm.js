@@ -1,6 +1,16 @@
 import React, { useRef, useEffect, useState } from "react";
 import APIManger from "../../modules/APIManager";
-import { Button, Form, FormGroup, Label, FormText } from "reactstrap";
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Container,
+  Row,
+  Col,
+  Card,
+  FormText
+} from "reactstrap";
 
 const EditCostForm = props => {
   const [costEdit, setCostFields] = useState([]);
@@ -32,37 +42,46 @@ const EditCostForm = props => {
 
   return (
     <>
-      <main style={{ textAlign: "center" }}>
-        <FormText className="h3 mb-3 font-weight-normal">Edit Cost Form</FormText>
-
-        <Form onSubmit={handleUpdate}>
-          <FormGroup>
-            <Label htmlFor="inputAddress"> Cost Name </Label>
-            <input
-              ref={name}
-              type="text"
-              name="address"
-              className="form-control"
-              defaultValue={costEdit.name}
-              required
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="inputPhoneNumber"> Amount </Label>
-            <input
-              ref={amount}
-              type="text"
-              name="phoneNumber"
-              className="form-control"
-              defaultValue={costEdit.amount}
-              required
-            />
-          </FormGroup>
-          <FormGroup>
-            <Button type="submit"> Submit</Button>
-          </FormGroup>
-        </Form>
-      </main>
+      <Container>
+        <Row>
+          <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <main style={{ textAlign: "center" }}>
+              <FormText className="h3 mb-3 font-weight-normal">
+                Edit Cost Form
+              </FormText>
+              <Card className="formCenter">
+                <Form onSubmit={handleUpdate}>
+                  <FormGroup>
+                    <Label htmlFor="inputAddress"> Cost Name </Label>
+                    <input
+                      ref={name}
+                      type="text"
+                      name="address"
+                      className="form-control"
+                      defaultValue={costEdit.name}
+                      required
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label htmlFor="inputPhoneNumber"> Amount </Label>
+                    <input
+                      ref={amount}
+                      type="text"
+                      name="phoneNumber"
+                      className="form-control"
+                      defaultValue={costEdit.amount}
+                      required
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Button type="submit"> Submit</Button>
+                  </FormGroup>
+                </Form>
+              </Card>
+            </main>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

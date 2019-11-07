@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ResponsiveBar } from "@nivo/bar";
 import ApiManger from "../../modules/APIManager";
 
@@ -70,7 +70,7 @@ const Chart = props => {
       }}
       axisLeft={{
         tickSize: 5,
-        tickPadding: 5,
+        tickPadding: -9,
         tickRotation: 0,
         legend: "cost $",
         legendPosition: "middle",
@@ -78,7 +78,7 @@ const Chart = props => {
       }}
       labelSkipWidth={12}
       labelSkipHeight={12}
-      labelTextColor={{ from: "color", modifiers: [["darker", 1.6]] }}
+      labelTextColor= "#ffffff"
       legends={[
         {
           dataFrom: "keys",

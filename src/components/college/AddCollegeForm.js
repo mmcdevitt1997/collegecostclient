@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 import ApiManger from "../../modules/APIManager";
 import {
   Button,
@@ -9,8 +9,6 @@ import {
   Row,
   Col,
   Card,
-  CardBody,
-  CardHeader,
   FormText
 } from "reactstrap";
 
@@ -48,14 +46,14 @@ const AddCollegeForm = props => {
                 </FormGroup>
                 <FormGroup className="contentForm">
                   <Label htmlFor="numberofyears">
-                    Number of years in college:
+                    Number of years in school:
                   </Label>
                   <input
                     type="number"
                     min="0"
                     name="numberofyears"
                     ref={numberofyears}
-                    placeholder="Years in College"
+                    placeholder="Years in School"
                   />
                 </FormGroup>
                 <Button className="buttonForm" onClick={e => addCollege(e)}>

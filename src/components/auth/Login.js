@@ -1,8 +1,14 @@
 import React, { useRef } from "react"
 import "./Login.css"
 import useSimpleAuth from "../hooks/ui/useSimpleAuth";
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
+import logo from "./College-Cost-Logo-white.png"
+import {
+    Button,
+    Form,
+    FormGroup,
+    Label,
+    FormText
+  } from "reactstrap";
 
 const Login = props => {
     const username = useRef()
@@ -31,9 +37,13 @@ const Login = props => {
     }
 
     return (
+
         <main style={{textAlign:"center"}}>
+<div>
+            <img className = "logo" height= "200px" width = "200px" src={logo} alt="logo"></img>
+            </div>
             <Form className="form--login" onSubmit={handleLogin}>
-                <FormText className="h3 mb-3 font-weight-normal">Please sign in</FormText >
+                <FormText className="h3 mb-3 font-weight-normal"> Sign In Here </FormText >
                 <FormGroup>
                     <Label htmlFor="inputEmail"> Username </Label>
                     <input ref={username} type="username"
@@ -55,7 +65,9 @@ const Login = props => {
                     </Button>
                 </FormGroup>
             </Form>
+
         </main>
+
     )
 }
 

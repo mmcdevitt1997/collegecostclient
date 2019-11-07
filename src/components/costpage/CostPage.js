@@ -1,24 +1,14 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import ApiManger from "../../modules/APIManager";
-import CostYearly from "./CostYearly";
 import "./Cost.css";
 import {
   Button,
-  Form,
-  FormGroup,
-  Label,
   Container,
-  Row,
-  Col,
   Card,
-  CardBody,
-  CardHeader,
-  FormText,
   Table
 } from "reactstrap";
 
 const CostPage = props => {
-  const college = useRef();
   const [costData, setCost] = useState([]);
   const [myColleges, setMyColleges] = useState([]);
 
@@ -45,9 +35,9 @@ const CostPage = props => {
       <Container>
         <div>
           <div>
-            <h1 className="costTitle"> {myColleges.name} Cost </h1>
+            <h1 className="costPageTitle"> {myColleges.name} Cost </h1>
             <Button
-              className="addCostButton"
+              className="addCostButton costbtn"
               onClick={() => {
                 props.history.push(`/addcost/${myColleges.id}`);
               }}
@@ -72,8 +62,8 @@ const CostPage = props => {
                     </Button>
                   </div>
                   <div className="flexYear">
-                    <h5> Yearly Balance ${year.yearly_balance}</h5>
-                    <h5> Yearly Cost ${year.cost}</h5>
+                    <h5 className="greenText"> Yearly Balance ${year.yearly_balance}</h5>
+                    <h5 className="redText"> Yearly Cost ${year.cost}</h5>
                   </div>
                 <Table>
                   <thead>
@@ -102,7 +92,7 @@ const CostPage = props => {
                                 Edit
                               </Button>
                               <Button
-                                className="costButton  deleteBtn"
+                                className="costButton deleteBtn"
                                 onClick={() => deleteCost(cost.id)}
                               >
                                 {" "}

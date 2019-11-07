@@ -1,18 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import ApiManger from "../../modules/APIManager";
 import "./Payment.css";
 import {
   Button,
-  Form,
-  FormGroup,
-  Label,
   Container,
-  Row,
-  Col,
   Card,
-  CardBody,
-  CardHeader,
-  FormText,
   Table
 } from "reactstrap";
 
@@ -46,7 +38,7 @@ const PaymentPage = props => {
           <div>
             <h1 className="paymentTitle"> {myColleges.name} Payments </h1>
             <Button
-              className="addPaymentButton"
+              className="addPaymentButton paymentbtn"
               onClick={() => {
                 props.history.push(`/addpayment/${myColleges.id}`);
               }}
@@ -70,8 +62,8 @@ const PaymentPage = props => {
                   </Button>
                 </div>
                 <div className="flexYear">
-                  <h5> Yearly Balance ${year.yearly_balance}</h5>
-                  <h5> Yearly Payments ${year.payment}</h5>
+                  <h5 className="greenText"> Yearly Balance ${year.yearly_balance}</h5>
+                  <h5 className="blueText"> Yearly Payments ${year.payment}</h5>
                 </div>
 
                 <Table>
@@ -90,7 +82,7 @@ const PaymentPage = props => {
                           <td>${payment.amount}
                           <div className="paymentButtonFlex">
                         <Button
-                        className="paymentButton"
+                        className="paymentButton deleteBtn"
                          onClick={() => deletePayment(payment.id)}>
                           X
                         </Button>
