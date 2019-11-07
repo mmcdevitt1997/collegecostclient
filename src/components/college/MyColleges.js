@@ -59,7 +59,7 @@ const MyColleges = props => {
                   <br />
 
                   <div className = "editDeleteButton">
-                  <Button onClick={() => deleteMyCollege(myCollege.id)}>
+                  <Button className="deleteBtn" onClick={() => deleteMyCollege(myCollege.id)}>
                    X
                   </Button>
                   <Button onClick={() => {props.history.push(`/editcollegepage/${myCollege.id}`)}}>Edit</Button>

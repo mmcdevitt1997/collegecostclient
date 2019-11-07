@@ -102,7 +102,7 @@ const CostPage = props => {
                                 Edit
                               </Button>
                               <Button
-                                className="costButton"
+                                className="costButton  deleteBtn"
                                 onClick={() => deleteCost(cost.id)}
                               >
                                 {" "}

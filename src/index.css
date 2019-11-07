@@ -38,3 +38,7 @@ code {
 .formYearTitle{
   margin-left: 25%;
 }
+
+.deleteBtn{
+  background-color: #e41a1c ;
+}

@@ -1,0 +1,14 @@
+.navColor{
+    background-color:#999999;
+    justify-content: space-between;
+}
+
+a{
+    color: whitesmoke;
+}
+.navButton{
+    margin: -19%;
+    margin-top: 5%;
+    margin-bottom: 15%;
+
+}
