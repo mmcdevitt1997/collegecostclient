@@ -46,14 +46,14 @@ const AddCollegeForm = props => {
                 </FormGroup>
                 <FormGroup className="contentForm">
                   <Label htmlFor="numberofyears">
-                    Number of years in school:
+                   Years in school:
                   </Label>
                   <input
                     type="number"
                     min="0"
                     name="numberofyears"
                     ref={numberofyears}
-                    placeholder="Years in School"
+                    placeholder="Years in College"
                   />
                 </FormGroup>
                 <Button className="buttonForm" onClick={e => addCollege(e)}>
