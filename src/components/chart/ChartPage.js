@@ -17,13 +17,13 @@ const ChartPage = props => {
     <>
       <h1 className="chartTitle">{myColleges.name} Chart</h1>
       <div className="chartData">
-        <p className="redText">Total Cost: ${myColleges.college_total_cost}</p>
-        <p className="blueText">
+        <h3 className="redText">Total Cost: ${myColleges.college_total_cost}</h3>
+        <h3 className="blueText">
           Total Payment: ${myColleges.college_total_payment}
-        </p>
-        <p className="greenText">
+        </h3>
+        <h3 className="greenText">
           Total Balance: ${myColleges.college_balance}
-        </p>
+        </h3>
       </div>
 
       <div className="Chart">

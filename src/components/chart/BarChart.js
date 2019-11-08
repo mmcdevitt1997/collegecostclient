@@ -76,8 +76,8 @@ const Chart = props => {
         legendPosition: "middle",
         legendOffset: -40
       }}
-      labelSkipWidth={12}
-      labelSkipHeight={12}
+      labelSkipWidth={20}
+      labelSkipHeight={20}
       labelTextColor= "#ffffff"
       legends={[
         {
