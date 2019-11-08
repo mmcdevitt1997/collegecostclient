@@ -1,9 +1,14 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import ApiManger from "../../modules/APIManager";
-import { Card, CardTitle, Button, CardBody, CardSubtitle } from "reactstrap";
+import "./Payment.css";
+import {
+  Button,
+  Container,
+  Card,
+  Table
+} from "reactstrap";
 
 const PaymentPage = props => {
-  const college = useRef();
   const [paymentData, setPayment] = useState([]);
   const [myColleges, setMyColleges] = useState([]);
 
@@ -28,65 +33,82 @@ const PaymentPage = props => {
 
   return (
     <>
-      <div>
+      <Container>
         <div>
-          <h1> {myColleges.name} Payment </h1>
-          <Button
-            onClick={() => {
-              props.history.push(`/addpayment/${myColleges.id}`);
-            }}
-          >
-
-            Add Payment
-          </Button>
-        </div>
-      </div>
-      {paymentData.map(year => {
-        return (
           <div>
-            <Card key={year.id} className="card">
-              <div>
-                <h3>{year.name}</h3>
-                <h5> Yearly Balance ${year.yearly_balance}</h5>
-                <h5> Yearly Payment ${year.payment}</h5>
-                <button
-                  onClick={() => {
-                    props.history.push(`/edityearpage/${year.id}`);
-                  }}
-                >
-                  Edit
-                </button>
-              </div>
-
-              <div>
-                {year["payments"].map(payment => {
-                  return (
-                    <Card key={payment.id} className="card">
-                      <p>
-                        {payment.name} ${payment.amount}
-                      </p>
-                      <Button onClick={() => deletePayment(payment.id)}>
-                        {" "}
-                        Delete
-                      </Button>
-                      <Button
-                        onClick={() => {
-                          props.history.push(`/editpaymentpage/${payment.id}`);
-                        }}
-                      >
-                        Edit
-                      </Button>
-                    </Card>
-                  );
-                })}
-              </div>
-              <ul>
-                <br />
-              </ul>
-            </Card>
+            <h1 className="paymentTitle"> {myColleges.name} Payments </h1>
+            <Button
+              className="addPaymentButton paymentbtn"
+              onClick={() => {
+                props.history.push(`/addpayment/${myColleges.id}`);
+              }}
+            >
+              Add Payment
+            </Button>
           </div>
-        );
-      })}
+        </div>
+        {paymentData.map(year => {
+          return (
+            <div>
+              <Card key={year.id} className="card, yearSeparation">
+                <div className="flexYear">
+                  <h3>{year.name}</h3>
+                  <Button
+                    onClick={() => {
+                      props.history.push(`/editpaymentyearpage/${props.match.params.collegeId}/${year.id}`);
+                    }}
+                  >
+                    Edit Year
+                  </Button>
+                </div>
+                <div className="flexYear">
+                  <h5 className="greenText"> Yearly Balance ${year.yearly_balance}</h5>
+                  <h5 className="blueText"> Yearly Payments ${year.payment}</h5>
+                </div>
+
+                <Table>
+                <thead>
+                    <tr>
+                      <th>Payment Name</th>
+                      <th>Payment Amount</th>
+                    </tr>
+                  </thead>
+                  {year["payments"].map(payment => {
+                    return (
+                      <tbody key={payment.id} >
+                        <tr>
+                          <td>{payment.name}</td>
+
+                          <td>${payment.amount}
+                          <div className="paymentButtonFlex">
+                        <Button
+                        className="paymentButton deleteBtn"
+                         onClick={() => deletePayment(payment.id)}>
+                          X
+                        </Button>
+                        <Button
+                         className="paymentButton"
+                          onClick={() => {
+                            props.history.push(
+                              `/editpaymentpage/${props.match.params.collegeId}/${payment.id}`
+                            );
+                          }}
+                        >
+                          Edit
+                        </Button>
+                        </div>
+                        </td>
+                        </tr>
+                      </tbody>
+                    );
+                  })}
+                </Table>
+                <br />
+              </Card>
+            </div>
+          );
+        })}
+      </Container>
     </>
   );
 };

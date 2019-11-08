@@ -14,3 +14,58 @@ code {
 .Chart {
   height: 300px;
 }
+.formCenter{
+  display: inline-block;
+  margin: 10%;
+  text-align: left;
+  margin-top: 5%;
+  padding: 5%;
+
+}
+.buttonForm{
+  margin-left: 26%;
+  margin-bottom: 20px;
+}
+
+.yearForm{
+  margin-left: 20%;
+}
+
+
+.formTitle{
+  margin-top: 5%;
+}
+.formYearTitle{
+  margin-left: 25%;
+}
+
+.deleteBtn{
+  background-color: red ;
+}
+
+.redText{
+  color:#e41a1c;
+}
+.greenText{
+  color:#4daf4a;
+}
+.blueText{
+  color:#377eb8;
+}
+
+.costbtn{
+  background: #e41a1c;
+}
+.paymentbtn{
+  background: #377eb8;
+}
+.graphbtn{
+  background: #4daf4a;
+}
+
+.card{
+  border-style: solid;
+  border-width: 4px;
+  border-color: #999999;
+
+}

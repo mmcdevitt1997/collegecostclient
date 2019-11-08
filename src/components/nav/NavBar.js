@@ -2,23 +2,38 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import useSimpleAuth from "../hooks/ui/useSimpleAuth";
+import "./NavBar.css";
+import logo from "./College-Cost-Logo.png"
+import { Nav, NavItem, Button } from 'reactstrap';
 
 const NavBar = props => {
   const { isAuthenticated, logout } = useSimpleAuth();
 
   return (
-    <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow navbar1">
-      <ul className="nav nav-pills nav-fill">
+    <Nav className = "navColor">
         {isAuthenticated() ? (
           <>
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
-                College List
-              </Link>
-            </li>
-            <li className="nav-item">
-              <button
-                className="nav-link fakeLink logout-link"
+          <NavItem>
+          <Link className="nav-link" to="/">
+          <img className = "logo" height= "55px" width = "55px" src={logo} alt="logo"></img>
+
+          </Link>
+          </NavItem>
+            <NavItem  className="collegeListbtn">
+            <Button
+
+                onClick={() => {
+                  props.history.push({
+                    pathname: "/"
+                  });
+                }}
+              >
+               College List
+              </Button>
+            </NavItem>
+            <NavItem>
+              <Button
+                className="navButton"
                 onClick={() => {
                   logout();
                   props.history.push({
@@ -27,25 +42,25 @@ const NavBar = props => {
                 }}
               >
                 Logout
-              </button>
-            </li>
+              </Button>
+            </NavItem>
           </>
         ) : (
           <>
-            <li className="nav-item">
+            <NavItem >
               <Link className="nav-link" to="/login">
                 Login
               </Link>
-            </li>
-            <li className="nav-item">
+            </NavItem>
+            <NavItem>
               <Link className="nav-link" to="/register">
                 Register
               </Link>
-            </li>
+            </NavItem>
           </>
         )}
-      </ul>
-    </nav>
+
+    </Nav>
   );
 };
 

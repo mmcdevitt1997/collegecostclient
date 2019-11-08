@@ -2,7 +2,7 @@
     display: inline-block;
     margin: 0 auto;
     text-align: left;
-    padding-top: 5em;
+    padding-top: 1em;
 }
 
 .form--login > fieldset > input[type="email"],

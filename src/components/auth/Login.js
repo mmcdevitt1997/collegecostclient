@@ -1,8 +1,14 @@
 import React, { useRef } from "react"
 import "./Login.css"
 import useSimpleAuth from "../hooks/ui/useSimpleAuth";
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
+import logo from "./College-Cost-Logo-white.png"
+import {
+    Button,
+    Form,
+    FormGroup,
+    Label,
+    FormText
+  } from "reactstrap";
 
 const Login = props => {
     const username = useRef()
@@ -31,31 +37,37 @@ const Login = props => {
     }
 
     return (
+
         <main style={{textAlign:"center"}}>
+<div>
+            <img className = "logo" height= "200px" width = "200px" src={logo} alt="logo"></img>
+            </div>
             <Form className="form--login" onSubmit={handleLogin}>
-                <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-                <fieldset>
-                    <label htmlFor="inputEmail"> Username </label>
+                <FormText className="h3 mb-3 font-weight-normal"> Sign In Here </FormText >
+                <FormGroup>
+                    <Label htmlFor="inputEmail"> Username </Label>
                     <input ref={username} type="username"
                         className="form-control"
                         placeholder="Username"
                         required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputPassword"> Password </label>
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="inputPassword"> Password </Label>
                     <input ref={password} type="password"
                         id="password"
                         className="form-control"
                         placeholder="Password"
                         required />
-                </fieldset>
-                <fieldset>
-                    <button type="submit">
+                </FormGroup>
+                <FormGroup>
+                    <Button type="submit">
                         Sign in
-                    </button>
-                </fieldset>
+                    </Button>
+                </FormGroup>
             </Form>
+
         </main>
+
     )
 }
 

@@ -1,0 +1,18 @@
+.addPaymentButton{
+  margin-left: 43%;
+  margin-bottom: 25px;
+}
+.paymentTitle{
+  text-align: center;
+}
+
+.paymentButtonFlex{
+  display: flex;
+  justify-content: flex-end;
+  margin: 1%;
+  margin-top: -7%;
+}
+.paymentButton{
+  margin: 1.3%;
+
+}
