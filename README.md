@@ -12,7 +12,7 @@ alt="College Cost Demo" width="500" height="280" border="10" /></a>
 
 ## Getting Started
 
-Clone the back end of college cost and follow instructions. [Here](https://github.com/mmcdevitt1997/collegecostapi)
+Clone the back end of college cost and follow instructions. [Here](https://github.com/mmcdevitt1997/capstonecollegecostapi)
 
 Clone this repository down in desired location: 
 
